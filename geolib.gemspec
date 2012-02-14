@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Joaquin Rivera Padron"]
   s.email       = ["joahking@gmail.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{a ruby library of geo functions and helpers}
+  s.description = %q{collection of ruby helpers to handle geo operations}
 
   s.rubyforge_project = "geolib"
 
@@ -19,6 +19,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   # specify any dependencies here; for example:
-  # s.add_development_dependency "rspec"
-  # s.add_runtime_dependency "rest-client"
+  s.add_development_dependency "rake"
+  s.add_development_dependency "minitest"
 end
