@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+require 'ruby-debug'
 module Geolib
   class Coord
 
@@ -22,12 +23,12 @@ module Geolib
     # 45 + (46/60) + (52/3600) = 45.7811111°
 
     def to_dd(decimals = 4)
-      degrees, mins, secs = @lat.split
-      sign = if secs[-1].is_a? String
-               secs[-1].upcase == "N" ? 1 : -1
-             end
+      degrees, mins, secs, last_chr = @lat.split
       dec = degrees.to_f + (mins.to_f/60) + (secs.to_f/3600)
-      dec *= sign if sign
+      if last_chr
+        sign = ["N", "E"].include?(last_chr.upcase) ? 1 : -1
+        dec *= sign
+      end
       [("%.#{decimals}f" % dec).to_f] if dec
     end
   end
